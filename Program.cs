@@ -1,5 +1,12 @@
 ﻿using System.Security.Cryptography.X509Certificates;
 
+// Vilka klasser bör ingå i programmet?
+
+/* Det räcker med en klass i detta program och det är den för de anställda */
+
+// Vilka attribut och metoder bör ingå i dessa klasser?
+/* Klassen bör ha attributen för namn och lön och metoder för att sätta dessa initialt men även att ändra dem i framtiden. I detta program använder jag egenskaper i klassen för att hämta namn och lön.*/
+
 namespace Uppgift_1
 {
     internal class Program
