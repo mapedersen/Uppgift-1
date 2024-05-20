@@ -25,7 +25,6 @@ namespace Uppgift_1
             public string Name
             {
                 get { return _employeeName; }
-                set { _employeeName = value; }
             }
 
             public decimal Salary
