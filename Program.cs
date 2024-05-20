@@ -26,6 +26,16 @@ namespace Uppgift_1
                 get { return _employeeSalary; }
                 set { _employeeSalary = value; }
             }
+
+            public string GetName()
+            {
+                return _employeeName;
+            }
+
+            public decimal GetSalary()
+            {
+                return _employeeSalary;
+            }
         }
         static void Main(string[] args)
         {
@@ -69,7 +79,7 @@ namespace Uppgift_1
             Console.WriteLine("Anställda i registret:");
             foreach (var Employee in employees)
             {
-                Console.WriteLine($"Namn {Employee.Name}, Lön: {Employee.Salary}");
+                Console.WriteLine($"Namn {Employee.GetName}, Lön: {Employee.GetSalary}");
             }
         }
     }
