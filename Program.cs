@@ -26,16 +26,6 @@ namespace Uppgift_1
                 get { return _employeeSalary; }
                 set { _employeeSalary = value; }
             }
-
-            public string GetName()
-            {
-                return _employeeName;
-            }
-
-            public decimal GetSalary()
-            {
-                return _employeeSalary;
-            }
         }
         static void Main(string[] args)
         {
@@ -55,7 +45,7 @@ namespace Uppgift_1
                 Console.Write("Lön: ");
                 string salaryInput = Console.ReadLine();
 
-                // Konvertera lönen till en decimal
+                // Konvertera stringen till typen decimal
                 decimal employeeSalary;
                 while (!decimal.TryParse(salaryInput, out employeeSalary))
                 {
@@ -67,6 +57,9 @@ namespace Uppgift_1
                 Employee employee = new Employee(employeeName, employeeSalary);
                 Console.WriteLine($"Namn: {employee.Name}, Lön: {employee.Salary}");
 
+                // Lägg till anställd i listan
+                employees.Add(employee);
+
                 // Fråga om användaren vill lägga till fler anställda eller skriva ut registret.
                 Console.Write("Vill du lägga till fler anställda? (j/n)");
                 string response = Console.ReadLine().ToLower();
@@ -76,10 +69,11 @@ namespace Uppgift_1
                 }
             }
 
+            // Skriv ut anställda i listan
             Console.WriteLine("Anställda i registret:");
-            foreach (var Employee in employees)
+            foreach (var employee in employees)
             {
-                Console.WriteLine($"Namn {Employee.GetName()}, Lön: {Employee.GetSalary()}");
+                Console.WriteLine($"Namn {employee.Name}, Lön: {employee.Salary}");
             }
         }
     }
