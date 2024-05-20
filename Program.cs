@@ -79,7 +79,7 @@ namespace Uppgift_1
             Console.WriteLine("Anställda i registret:");
             foreach (var Employee in employees)
             {
-                Console.WriteLine($"Namn {Employee.GetName}, Lön: {Employee.GetSalary}");
+                Console.WriteLine($"Namn {Employee.GetName()}, Lön: {Employee.GetSalary()}");
             }
         }
     }
