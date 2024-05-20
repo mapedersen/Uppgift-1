@@ -45,14 +45,31 @@ namespace Uppgift_1
             // Skapa anställda i personalregistrer
             while (true)
             {
-                // Be om uppgifter på den anställde
-                Console.WriteLine("Vem vill du lägga till?");
-                Console.Write("Namn:");
-                string employeeName = Console.ReadLine();
+
+                //Läser in och validerar namnet
+                string employeeName;
+                do
+                {
+                    Console.WriteLine("Vem vill du lägga till?");
+                    Console.Write("Namn: ");
+
+                    employeeName = Console.ReadLine();
+
+                    if (string.IsNullOrEmpty(employeeName))
+                    {
+                        Console.WriteLine("Namnet kan inte vara tomt, försök igen");
+                    }
+                    else if (employeeName.Any(char.IsDigit))
+                    {
+                        Console.WriteLine("Namnet kan inte innehålla siffror");
+                    }
+                } while (string.IsNullOrEmpty(employeeName) || employeeName.Any(char.IsDigit));
+                
+                // Läser in lön
                 Console.Write("Lön: ");
                 string salaryInput = Console.ReadLine();
 
-                // Konvertera stringen till typen decimal
+                // Validerarar och konvertera stringen till typen decimal
                 decimal employeeSalary;
                 while (!decimal.TryParse(salaryInput, out employeeSalary))
                 {
@@ -80,7 +97,7 @@ namespace Uppgift_1
             Console.WriteLine("Anställda i registret:");
             foreach (var employee in employees)
             {
-                Console.WriteLine($"Namn {employee.Name}, Lön: {employee.Salary}");
+                Console.WriteLine($"Namn: {employee.Name}, Lön: {employee.Salary}");
             }
         }
     }
