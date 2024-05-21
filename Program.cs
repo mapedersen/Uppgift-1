@@ -4,7 +4,8 @@
 
 /* Det räcker med en klass i detta program och det är den för de anställda */
 
-// Vilka attribut och metoder bör ingå i dessa klasser?
+// Vilka attribut och metoder bör ingå i dessa klasser?
+
 /* Klassen bör ha attribut för namn och lön. I detta program använder jag egenskaper i klassen för att hämta namn och lön.*/
 
 namespace Uppgift_1
@@ -84,9 +85,20 @@ namespace Uppgift_1
                 employees.Add(employee);
 
                 // Fråga om användaren vill lägga till fler anställda eller skriva ut registret.
-                Console.Write("Vill du lägga till fler anställda? (j/n)");
-                string response = Console.ReadLine().ToLower();
-                if (response != "j")
+                string response;
+                do
+                {
+                    Console.WriteLine("Vill du lägga till fler anställda? (j/n)");
+                    Console.Write("Svar: ");
+                    response = Console.ReadLine().Trim().ToLower();
+
+                    if (response != "j" && response != "n")
+                    {
+                        Console.WriteLine("Ange ett giltigt svar.");
+                    }
+                } while (response != "j" && response != "n");
+
+                if (response == "n")
                 {
                     break;
                 }
